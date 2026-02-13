@@ -38,13 +38,11 @@ class AuthController {
     
     // Logout
     public function logout() {
-        session_destroy();
-        Flight::redirect('/login');
+        Flight::redirect('/');
     }
     
     // Logout admin
     public function logoutAdmin() {
-        session_destroy();
         Flight::redirect('/admin/login');
     }
 }

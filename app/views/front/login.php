@@ -144,7 +144,7 @@
         <div class="card-body">
             <p class="login-box-msg">Connectez-vous pour échanger vos objets</p>
 
-            <form action="/login" method="post">
+            <form action="/user/login" method="post">
                 <!-- Email -->
                 <div class="input-group">
                     <span class="input-group-text">

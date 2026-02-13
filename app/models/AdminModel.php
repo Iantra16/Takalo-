@@ -19,6 +19,11 @@ class AdminModel
         return $sql->fetch();
     }
 
+    public function getAllUsers() {
+        $sql = $this->db->query("SELECT * FROM user");
+        return $sql->fetchAll();
+    }
+
 
 
 }

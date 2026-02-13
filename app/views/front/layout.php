@@ -11,53 +11,80 @@
     <link rel="stylesheet" href="/assets/front/dist/css/adminlte.min.css">
     <!-- CSS personnalisé -->
     <link rel="stylesheet" href="/assets/commun/css/custom.css">
-</head>
-<body class="layout-top-nav">
+    </head>
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-    
+
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-        <div class="container">
-            <a href="/" class="navbar-brand">
-                <span class="brand-text font-weight-light"><b>Takalo-takalo</b></span>
-            </a>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="/user" class="nav-link">Accueil</a>
+            </li>
+        </ul>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <!-- Left navbar links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/mes-objets" class="nav-link">Mes objets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/mes-echanges" class="nav-link">Mes échanges</a>
-                    </li>
-                </ul>
-
-                <!-- Right navbar links -->
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/inscription" class="nav-link btn btn-primary text-white ms-2">Inscription</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="/user/logout" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </a>
+            </li>
+        </ul>
     </nav>
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="/" class="brand-link">
+            <i class="fas fa-exchange-alt ms-2"></i>
+            <span class="brand-text font-weight-light">Takalo-takalo</span>
+        </a>
+
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                    <li class="nav-item">
+                        <a href="/user" class="nav-link">
+                            <i class="nav-icon fas fa-home"></i>
+                            <p>Accueil</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/mes-objets" class="nav-link">
+                            <i class="nav-icon fas fa-box"></i>
+                            <p>Mes objets</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/mes-echanges" class="nav-link">
+                            <i class="nav-icon fas fa-exchange-alt"></i>
+                            <p>Mes échanges</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
 
     <!-- Content Wrapper -->
     <div class="content-wrapper">
         <div class="content">
-            <div class="container mt-4">
-                <?= $content ?? '' ?>
+            <div class="container-fluid mt-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+                            <div>
+                                <div class="text-muted text-uppercase small">Plateforme d'echange</div>
+                                <h1 class="h4 mb-0"><?= $title ?? 'Takalo-takalo' ?></h1>
+                            </div>
+                        </div>
+                        <?= $content ?? '' ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

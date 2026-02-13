@@ -32,7 +32,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/logout">
+                <a class="nav-link" href="/admin/logout">
                     <i class="fas fa-sign-out-alt"></i> Déconnexion
                 </a>
             </li>
@@ -99,7 +99,8 @@
         </div>
     </footer>
 </div>
-
+<!-- Sidebar active menu -->
+<script src="/assets/commun/js/sidebar.js"></script>
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!-- Bootstrap 5 (pour AdminLTE 4) -->

@@ -51,7 +51,7 @@
         <div class="card-body register-card-body">
             <p class="login-box-msg">Créer un nouveau compte</p>
 
-            <form action="/inscription" method="post">
+            <form action="/user/inscription" method="post">
                 <!-- Nom -->
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Nom" name="nom" required>
@@ -113,7 +113,7 @@
 
             <!-- Lien connexion -->
             <p class="mt-3 mb-1 text-center">
-                <a href="/login">Vous avez déjà un compte ? Connectez-vous</a>
+                <a href="/">Vous avez déjà un compte ? Connectez-vous</a>
             </p>
         </div>
     </div>

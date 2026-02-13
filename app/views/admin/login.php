@@ -89,7 +89,7 @@
                 <!-- Retour -->
                 <div class="row">
                     <div class="col-12">
-                        <a href="/login" class="btn btn-outline-secondary btn-block">
+                        <a href="/" class="btn btn-outline-secondary btn-block">
                             <i class="fas fa-arrow-left"></i> Retour à la page utilisateur
                         </a>
                     </div>
