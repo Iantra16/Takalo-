@@ -7,6 +7,11 @@
  */
 $ds = DIRECTORY_SEPARATOR;
 require(__DIR__ . $ds . '..' . $ds . '..' . $ds . 'vendor' . $ds . 'autoload.php');
+
+// Démarrer la session
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if(file_exists(__DIR__. $ds . 'config.php') === false) {
 	Flight::halt(500, 'Config file not found. Please create a config.php file in the app/config directory to get started.');
 }

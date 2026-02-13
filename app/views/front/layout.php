@@ -39,9 +39,9 @@
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="/" class="brand-link">
+        <a href="/user" class="brand-link">
             <i class="fas fa-exchange-alt ms-2"></i>
-            <span class="brand-text font-weight-light">Takalo-takalo</span>
+            <span class="brand-text font-weight-light ps-3"> Takalo-takalo</span>
         </a>
 
         <div class="sidebar">

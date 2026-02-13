@@ -12,7 +12,12 @@ class AuthController {
         $adminModel = new AdminModel(Flight::db());
         $username = Flight::request()->data->username;
         $admin = $adminModel->adminExist($username);
-        Flight::render('admin/layout', ['admin' => $admin]);
+        
+        if ($admin) {
+            Flight::redirect('/admin');
+        } else {
+            Flight::render('admin/login', ['error' => 'Identifiants invalides']);
+        }
     }
     
     // Login utilisateur
@@ -27,11 +32,11 @@ class AuthController {
     // Register utilisateur
     public function registerUser() {
         $userModel = new UserModel(Flight::db());
-        $nom = Flight::request()->data->nom;
-        $prenom = Flight::request()->data->prenom;
-        $email = Flight::request()->data->email;
-        $telephone = Flight::request()->data->telephone;
-        $password_hash = password_hash(Flight::request()->data->password, PASSWORD_BCRYPT);
+            $nom = Flight::request()->data->nom;
+            $prenom = Flight::request()->data->prenom;
+            $email = Flight::request()->data->email;
+            $telephone = Flight::request()->data->telephone;
+            $password_hash = password_hash(Flight::request()->data->password, PASSWORD_BCRYPT);
         $newUser = $userModel->insertUser($nom, $prenom, $email, $telephone, $password_hash);
         Flight::render('front/layout', ['newUser' => $newUser]);
     }

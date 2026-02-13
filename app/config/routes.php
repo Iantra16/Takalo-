@@ -64,13 +64,15 @@ $router->group('', function (Router $router) use ($app) {
         });
         $router->post('/inscription',[$auth_controller,'registerUser']);
 
+        //liste objets
+        $router->get('/listobject', function () use ($app) {
+            $app->render('front/liste_objets');
+        });
+
         //mes objets
         $router->get('/myobject', function () use ($app) {
             $app->render('admin/listobject');
         });
-
-        //liste objets
-        
         // Déconnexion
         $router->get('/logout', function () use ($app) {
             $auth_controller = new AuthController();

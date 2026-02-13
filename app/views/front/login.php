@@ -194,7 +194,7 @@
             <!-- Lien inscription -->
             <div class="register-link">
                 <p>Pas encore de compte ? 
-                    <a href="/inscription">Inscrivez-vous</a>
+                    <a href="/user/inscription">Inscrivez-vous</a>
                 </p>
             </div>
         </div>
