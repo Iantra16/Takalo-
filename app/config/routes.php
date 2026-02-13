@@ -1,4 +1,5 @@
 <?php
+
 use app\controllers\AuthController;
 use app\controllers\AdminController;
 use app\controllers\ObjetController;
@@ -13,57 +14,109 @@ use flight\net\Router;
  */
 
 // Group principal
-$router->group('', function(Router $router) use ($app) {
+$router->group('', function (Router $router) use ($app) {
 
     // ============================================
     // ROUTES AUTHENTIFICATION - FRONT OFFICE
     // ============================================
-    
+
     // Page de login utilisateur (GET)
-    $router->get('/', function() use ($app) {
-        $app->render('front/login');
+    $router->get('/', function () use ($app) {
+        $app->redirect('user/login');
     });
+
+    // ============================================
+    // ADMIN
+    // ============================================
+    $router->group('/admin', function (Router $router) use ($app) {
+        // Page de login utilisateur (GET)
+        $router->get('/login', function () use ($app) {
+            $app->render('admin/login');
+        });
+    });
+
+    // ============================================
+    // USER
+    // ============================================
+    $router->group('/user', function (Router $router) use ($app) {
+        // Page de login utilisateur (GET)
+        $router->get('/login', function () use ($app) {
+            $app->render('front/login');
+        });
+
+
+        $router->get('/myobject', function () use ($app) {
+            $app->render('admin/listobject');
+        });
+
+        // $router->get('/login', function() use ($app) {
+        //     $app->render('front/login');
+        // });
+
+        $router->post('/login', function () use ($app) {
+            $auth_controller = new AuthController();
+            $auth_controller->loginUser();
+        });
+
+        // Page d'inscription (GET)
+        $router->get('/inscription', function () use ($app) {
+            $app->render('front/inscription');
+        });
+
+        // Traitement inscription (POST)
+        $router->post('/inscription', function () use ($app) {
+            $auth_controller = new AuthController();
+            $auth_controller->registerUser();
+        });
+
+        // Déconnexion
+        $router->get('/logout', function () use ($app) {
+            $auth_controller = new AuthController();
+            $auth_controller->logout();
+        });
+    });
+
 
     // Traitement login utilisateur (POST)
-    $router->post('/login', function() use ($app) {
-        $auth_controller = new AuthController();
-        $auth_controller->loginUser();
-    });
+    // $router->post('/login', function() use ($app) {
+    //     $auth_controller = new AuthController();
+    //     $auth_controller->loginUser();
+    // });
 
-    // Page d'inscription (GET)
-    $router->get('/inscription', function() use ($app) {
-        $app->render('front/inscription');
-    });
+    // // Page d'inscription (GET)
+    // $router->get('/inscription', function() use ($app) {
+    //     $app->render('front/inscription');
+    // });
 
-    // Traitement inscription (POST)
-    $router->post('/inscription', function() use ($app) {
-        $auth_controller = new AuthController();
-        $auth_controller->registerUser();
-    });
+    // // Traitement inscription (POST)
+    // $router->post('/inscription', function() use ($app) {
+    //     $auth_controller = new AuthController();
+    //     $auth_controller->registerUser();
+    // });
 
-    // Déconnexion
-    $router->get('/logout', function() use ($app) {
-        $auth_controller = new AuthController();
-        $auth_controller->logout();
-    });
+    // // Déconnexion
+    // $router->get('/logout', function() use ($app) {
+    //     $auth_controller = new AuthController();
+    //     $auth_controller->logout();
+    // });
 
     // ============================================
     // ROUTES AUTHENTIFICATION - BACK OFFICE
     // ============================================
-    
+
     // Page de login admin (GET)
-    $router->get('/admin/login', function() use ($app) {
+    $router->get('/admin/login', function () use ($app) {
         $app->render('admin/login');
     });
 
     // Traitement login admin (POST)
-    $router->post('/admin/login', function() use ($app) {
+    $router->post('/admin/login', function () use ($app) {
         $auth_controller = new AuthController();
         $auth_controller->loginAdmin();
     });
 
     // Déconnexion admin
-    $router->get('/admin/logout', function() use ($app) {
+    $router->get('/admin/logout', function () use ($app) {
         $auth_controller = new AuthController();
         $auth_controller->logoutAdmin();
     });
@@ -71,7 +124,7 @@ $router->group('', function(Router $router) use ($app) {
     // ============================================
     // ROUTES FRONT OFFICE - PUBLIC
     // ============================================
-    
+
     // // Page d'accueil - Liste des objets
     // $router->get('/', function() use ($app) {
     //     $objet_controller = new ObjetController();
@@ -99,7 +152,7 @@ $router->group('', function(Router $router) use ($app) {
     // // ============================================
     // // ROUTES FRONT OFFICE - UTILISATEUR CONNECTÉ
     // // ============================================
-    
+
     // // Mes objets
     // $router->get('/mes-objets', function() use ($app) {
     //     $objet_controller = new ObjetController();
@@ -139,7 +192,7 @@ $router->group('', function(Router $router) use ($app) {
     // // ============================================
     // // ROUTES ÉCHANGES
     // // ============================================
-    
+
     // // Mes échanges
     // $router->get('/mes-echanges', function() use ($app) {
     //     $echange_controller = new EchangeController();
@@ -167,7 +220,7 @@ $router->group('', function(Router $router) use ($app) {
     // // ============================================
     // // ROUTES BACK OFFICE - ADMIN
     // // ============================================
-    
+
     // // Dashboard admin
     // $router->get('/admin', function() use ($app) {
     //     $admin_controller = new AdminController();
@@ -177,7 +230,7 @@ $router->group('', function(Router $router) use ($app) {
     // // ============================================
     // // GESTION DES CATÉGORIES
     // // ============================================
-    
+
     // // Liste des catégories
     // $router->get('/admin/categories', function() use ($app) {
     //     $categorie_controller = new CategorieController();
@@ -217,7 +270,7 @@ $router->group('', function(Router $router) use ($app) {
     // // ============================================
     // // GESTION DES UTILISATEURS (ADMIN)
     // // ============================================
-    
+
     // // Liste des utilisateurs
     // $router->get('/admin/utilisateurs', function() use ($app) {
     //     $admin_controller = new AdminController();
