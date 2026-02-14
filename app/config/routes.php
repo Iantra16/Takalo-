@@ -52,6 +52,8 @@ $router->group('', function (Router $router) use ($app) {
     // ============================================
     $router->group('/user', function (Router $router) use ($app) {
         $auth_controller = new AuthController();
+        $user_controller = new \app\controllers\UserController();
+
         //login
         $router->get('/login', function () use ($app) {
             $app->render('front/login');
@@ -64,21 +66,20 @@ $router->group('', function (Router $router) use ($app) {
         });
         $router->post('/inscription',[$auth_controller,'registerUser']);
 
-        //liste objets
-        $router->get('/listobject', function () use ($app) {
-            $app->render('front/liste_objets');
-        });
+        //liste objets (tout les objets)
+        $router->get('/listobject', [$user_controller, 'findAllObjet']);
 
         //mes objets
-        $router->get('/myobject', function () use ($app) {
-            $app->render('admin/listobject');
-        });
+        $router->get('/myobject', [$user_controller, 'findMyObj']);
+        
+        //objets des autres
+        $router->get('/otherobject', [$user_controller, 'findOtherObj']);
+
         // Déconnexion
         $router->get('/logout', function () use ($app) {
             $auth_controller = new AuthController();
             $auth_controller->logout();
         });
     });
-
 
 });

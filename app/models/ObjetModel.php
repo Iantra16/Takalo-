@@ -13,14 +13,20 @@ class ObjetModel
         $this->db = $db;
     }
 
-    public function getAllObjets() {
-        $sql = $this->db->query("SELECT * FROM objet");
+    public function getAll() {
+        $sql = $this->db->query("SELECT * FROM v_objet_propri_actuel");
         return $sql->fetchAll();
     }
 
-    public function getObjetOthers($me) {
-        $sql = $this->db->prepare("SELECT * FROM objet WHERE id_user != ?");
-        $sql->execute([$me]);
+    public function getMy($idUser) {
+        $sql = $this->db->prepare("SELECT * FROM v_objet_propri_actuel WHERE id_proprietaire = ?");
+        $sql->execute([$idUser]);
+        return $sql->fetchAll();
+    }
+
+    public function getOthers($idUser) {
+        $sql = $this->db->prepare("SELECT * FROM v_objet_propri_actuel WHERE id_proprietaire != ? OR id_proprietaire IS NULL");
+        $sql->execute([$idUser]);
         return $sql->fetchAll();
     }
 
