@@ -14,14 +14,14 @@ $items = $myobjets ?? [];
 					<div class="card h-100 shadow-sm">
 						<!-- Une seule image (la première) -->
 						<?php 
-						$imageUrl = '/images/placeholder.jpg';
+						// $imageUrl = '/images/placeholder.jpg';
 						if (!empty($objet['images']) && is_array($objet['images']) && isset($objet['images'][0]['urlImg'])) {
 							$imageUrl = $objet['images'][0]['urlImg'];
 						} elseif (!empty($objet['urlImg'])) {
 							$imageUrl = $objet['urlImg'];
 						}
 						?>
-						<img src="<?= htmlspecialchars($imageUrl) ?>" 
+						<img src="<?= pathImage($imageUrl) ?>" 
 						     class="card-img-top" 
 						     alt="<?= htmlspecialchars($objet['nom'] ?? '') ?>"
 						     style="height: 250px; object-fit: cover;">
