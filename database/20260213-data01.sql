@@ -2,6 +2,11 @@
 
 INSERT INTO admin (username) VALUES ('admin');
 
+INSERT INTO user (nom, prenom, email, password_hash, telephone) VALUES
+('Rakoto', 'Koto', 'koto@gmail.com', '$2y$10$11e56.0zFjoc7qB.2Oi2..5cdqDTSlnmdQv7qtopV6iiw5XpnBzZ2', '03256987456'),
+('Rabe', 'Lova', 'lova@gmail.com', '$2y$10$MxwOsErJBvVgPw3XhlQFfuJgxHZsUw.YPm7m1z4R9L9gcF7/0YKjK', '034567822'),
+('Rasoa', 'Jeanne', 'jeanne@gmail.com', '$2y$10$JkBm2zYPfXH2DvstBPMtVecyfjh1eAJy.2RydEuoVJsMgQ36VxhK2', '0123245678');
+
 INSERT INTO categorie (nom) VALUES
 ('Food'),
 ('Books'),
