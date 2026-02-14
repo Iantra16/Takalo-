@@ -16,9 +16,11 @@ class ObjetController {
             return;
         }
         $objets = $objModel->getObjetsNotOwnedBy($me);
-        Flight::render('front/liste_objets', ['objets' => $objets], 'content');
+        // Flight::render('front/liste_objets', ['objets' => $objets] , 'content');
         Flight::render('front/layout', [
-            'title' => 'Liste des objets'
+            'page' => 'liste_objets' ,
+            'title' => 'Liste des objets' , 
+            'objets' => $objets
         ]);
     }
 
@@ -29,10 +31,12 @@ class ObjetController {
             Flight::redirect('/user/login');
             return;
         }
-        $myobjets = $objModel->getObjetsOwnedBy($me);
-        Flight::render('front/mes_objets', ['myobjets' => $myobjets], 'content');
+        $objets = $objModel->getObjetsOwnedBy($me);
+        // Flight::render('front/mes_objets', ['myobjets' => $myobjets], 'content');
         Flight::render('front/layout', [
-            'title' => 'Mes objets'
+            'page' => 'liste_objets' ,
+            'title' => 'Mes objets' ,
+            'objets' => $objets
         ]);
     }
     

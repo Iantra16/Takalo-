@@ -14,14 +14,14 @@ $items = $allobjets ?? $objets ?? [];
 					<div class="card h-100 shadow-sm">
 						<!-- Une seule image (la première) -->
 						<?php 
-						$imageUrl = '/images/placeholder.jpg';
+						// $imageUrl = '/images/placeholder.jpg';
 						if (!empty($objet['images']) && is_array($objet['images']) && isset($objet['images'][0]['urlImg'])) {
 							$imageUrl = $objet['images'][0]['urlImg'];
 						} elseif (!empty($objet['urlImg'])) {
 							$imageUrl = $objet['urlImg'];
 						}
 						?>
-						<img src="<?= htmlspecialchars($imageUrl) ?>" 
+						<img src="<?= pathImage($imageUrl) ?>" 
 						     class="card-img-top" 
 						     alt="<?= htmlspecialchars($objet['nom'] ?? '') ?>"
 						     style="height: 250px; object-fit: cover;">
@@ -34,7 +34,7 @@ $items = $allobjets ?? $objets ?? [];
 							</p>
 							<div class="d-flex justify-content-between align-items-center mt-2">
 								<span class="badge bg-primary"><?= htmlspecialchars($objet['categorie_nom'] ?? 'Non catégorisé') ?></span>
-								<h6 class="mb-0 text-success fw-bold"><?= number_format($objet['prix'] ?? 0, 2) ?> €</h6>
+								<h6 class="mb-0 text-success fw-bold"><?= afficheprix($objet['prix']) ?></h6>
 							</div>
 						</div>
 						

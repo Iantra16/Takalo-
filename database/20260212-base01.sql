@@ -27,7 +27,7 @@ CREATE TABLE user(
 -- TABLE CATEGORIE
 -- ============================================
 CREATE TABLE categorie(
-    idCat INT AUTO_INCREMENT PRIMARY KEY,
+    idCat INT AUTO_INCR EMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -87,10 +87,7 @@ CREATE TABLE proposition_echange(
     FOREIGN KEY (idObjetPropose) REFERENCES objet(id) ON DELETE CASCADE,
     FOREIGN KEY (idObjetDemande) REFERENCES objet(id) ON DELETE CASCADE,
     FOREIGN KEY (idUserProposant) REFERENCES user(idUser) ON DELETE CASCADE,
-    FOREIGN KEY (idUserDestinataire) REFERENCES user(idUser) ON DELETE CASCADE,
-    INDEX idx_statut (statut),
-    INDEX idx_user_proposant (idUserProposant),
-    INDEX idx_user_destinataire (idUserDestinataire)
+    FOREIGN KEY (idUserDestinataire) REFERENCES user(idUser) ON DELETE CASCADE
 );
 
 -- ============================================
