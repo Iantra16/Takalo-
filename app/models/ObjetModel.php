@@ -21,13 +21,9 @@ class ObjetModel
 
     public function getObjetsNotOwnedBy($userId) {
         $sql = $this->db->prepare(
-            "SELECT o.*, 
-                    c.nom as categorie_nom
-            FROM objet o
-            INNER JOIN appartenance a ON a.idObjet = o.id AND a.date_fin IS NULL
-            LEFT JOIN categorie c ON o.idCat = c.idCat
-            WHERE a.idUser != ?
-            ORDER BY o.created_at DESC"
+            "SELECT * FROM v_objet_owner
+            WHERE user_id != ?
+            ORDER BY created_at DESC"
         );
         $sql->execute([$userId]);
         $objets = $sql->fetchAll();
@@ -42,13 +38,9 @@ class ObjetModel
 
     public function getObjetsOwnedBy($userId) {
         $sql = $this->db->prepare(
-            "SELECT o.*, 
-                    c.nom as categorie_nom
-            FROM objet o
-            INNER JOIN appartenance a ON a.idObjet = o.id AND a.date_fin IS NULL
-            LEFT JOIN categorie c ON o.idCat = c.idCat
-            WHERE a.idUser = ?
-            ORDER BY o.created_at DESC"
+            "SELECT * FROM v_objet_owner
+            WHERE user_id = ?
+            ORDER BY created_at DESC"
         );
         $sql->execute([$userId]);
         $objets = $sql->fetchAll();
@@ -63,17 +55,8 @@ class ObjetModel
 
     public function getObjetById($objetId) {
         $sql = $this->db->prepare(
-            "SELECT o.*, 
-                    c.nom as categorie_nom,
-                    u.nom as proprietaire_nom,
-                    u.prenom as proprietaire_prenom,
-                    u.email as proprietaire_email,
-                    u.telephone as proprietaire_telephone
-            FROM objet o
-            LEFT JOIN categorie c ON o.idCat = c.idCat
-            LEFT JOIN appartenance a ON a.idObjet = o.id AND a.date_fin IS NULL
-            LEFT JOIN user u ON a.idUser = u.idUser
-            WHERE o.id = ?"
+            "SELECT * FROM v_objet_detail
+            WHERE id = ?"
         );
         $sql->execute([$objetId]);
         $objet = $sql->fetch();
@@ -87,11 +70,8 @@ class ObjetModel
 
     public function getAllObjets() {
         $sql = $this->db->prepare(
-            "SELECT o.*, 
-                    c.nom as categorie_nom
-            FROM objet o
-            LEFT JOIN categorie c ON o.idCat = c.idCat
-            ORDER BY o.created_at DESC"
+            "SELECT * FROM v_objet_categorie
+            ORDER BY created_at DESC"
         );
         $sql->execute();
         $objets = $sql->fetchAll();

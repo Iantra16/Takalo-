@@ -14,7 +14,7 @@ $items = $myobjets ?? [];
 					<div class="card h-100 shadow-sm">
 						<!-- Une seule image (la première) -->
 						<?php 
-						$imageUrl = 'images/placeholder.jpg';
+						$imageUrl = '/images/placeholder.jpg';
 						if (!empty($objet['images']) && is_array($objet['images']) && isset($objet['images'][0]['urlImg'])) {
 							$imageUrl = $objet['images'][0]['urlImg'];
 						} elseif (!empty($objet['urlImg'])) {
