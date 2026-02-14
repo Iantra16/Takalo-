@@ -26,7 +26,14 @@ class AuthController {
         $email = Flight::request()->data->email;
         $password = Flight::request()->data->password;
         $user = $userModel->verifieUser($email, $password);
-        Flight::render('front/layout', ['user' => $user]);
+        if ($user) {
+            $_SESSION['iduser'] = $user['idUser'] ?? null;
+            Flight::redirect('/user');
+            return;
+        } else {
+            Flight::render('front/login', ['error' => 'Identifiants invalides']);
+        }
+
     }
     
     // Register utilisateur
@@ -38,12 +45,16 @@ class AuthController {
             $telephone = Flight::request()->data->telephone;
             $password_hash = password_hash(Flight::request()->data->password, PASSWORD_BCRYPT);
         $newUser = $userModel->insertUser($nom, $prenom, $email, $telephone, $password_hash);
-        Flight::render('front/layout', ['newUser' => $newUser]);
+        if ($newUser) {
+            Flight::redirect('/user');
+            return;
+        }
     }
     
     // Logout
     public function logout() {
-        Flight::redirect('/');
+        unset($_SESSION['iduser']);
+        Flight::redirect('/user/login');
     }
     
     // Logout admin

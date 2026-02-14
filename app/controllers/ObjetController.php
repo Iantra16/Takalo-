@@ -7,17 +7,33 @@ use Flight;
 
 class ObjetController {
     
-    public function findAllObjet() {
-        $objModel = new ObjetModel(Flight::db());
-        $allobjets = $objModel->getAllObjets();
-        Flight::render('front/liste_objets', ['allobjets' => $allobjets]);
-    }
 
     public function findOtherObj() {
         $objModel = new ObjetModel(Flight::db());
-        $me = Flight::request()->data->id_user;
-        $objets = $objModel->getObjetOthers($me);
-        Flight::render('front/liste_objets', ['objets' => $objets]);
+        $me = $_SESSION['iduser'] ?? null;
+        if (!$me) {
+            Flight::redirect('/user/login');
+            return;
+        }
+        $objets = $objModel->getObjetsNotOwnedBy($me);
+        Flight::render('front/liste_objets', ['objets' => $objets], 'content');
+        Flight::render('front/layout', [
+            'title' => 'Liste des objets'
+        ]);
+    }
+
+    public function showMyObjects() {
+        $objModel = new ObjetModel(Flight::db());
+        $me = $_SESSION['iduser'] ?? null;
+        if (!$me) {
+            Flight::redirect('/user/login');
+            return;
+        }
+        $myobjets = $objModel->getObjetsOwnedBy($me);
+        Flight::render('front/mes_objets', ['myobjets' => $myobjets], 'content');
+        Flight::render('front/layout', [
+            'title' => 'Mes objets'
+        ]);
     }
     
 

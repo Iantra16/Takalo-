@@ -144,6 +144,12 @@
         <div class="card-body">
             <p class="login-box-msg">Connectez-vous pour échanger vos objets</p>
 
+            <?php if (!empty($error)) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
+
             <form action="/user/login" method="post">
                 <!-- Email -->
                 <div class="input-group">

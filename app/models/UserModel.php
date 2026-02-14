@@ -13,10 +13,16 @@ class UserModel
         $this->db = $db;
     }
 
-    public function verifieUser($email, $password_hash){
-        $sql = $this->db->prepare("SELECT * FROM user WHERE email = ? AND password_hash = ?");
-        $sql->execute([$email, $password_hash]);
-        return $sql->fetch();
+    public function verifieUser($email, $password){
+        $sql = $this->db->prepare("SELECT * FROM user WHERE email = ?");
+        $sql->execute([$email]);
+        $user = $sql->fetch();
+
+        if (!$user) {
+            return false;
+        }
+
+        return password_verify($password, $user['password_hash'] ?? '') ? $user : false;
     }
 
     public function insertUser($nom, $prenom, $email, $telephone, $password_hash){

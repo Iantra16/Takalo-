@@ -10,7 +10,7 @@
     <!-- AdminLTE 4 -->
     <link rel="stylesheet" href="/assets/front/dist/css/adminlte.min.css">
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/assets/shared/css/custom.css">
+    <link rel="stylesheet" href="/assets/commun/css/custom.css">
     
     <style>
         body {
@@ -50,6 +50,12 @@
     <div class="card">
         <div class="card-body register-card-body">
             <p class="login-box-msg">Créer un nouveau compte</p>
+
+            <?php if (!empty($error)) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
 
             <form action="/user/inscription" method="post">
                 <!-- Nom -->
@@ -113,7 +119,7 @@
 
             <!-- Lien connexion -->
             <p class="mt-3 mb-1 text-center">
-                <a href="/">Vous avez déjà un compte ? Connectez-vous</a>
+                <a href="/user/login">Vous avez déjà un compte ? Connectez-vous</a>
             </p>
         </div>
     </div>

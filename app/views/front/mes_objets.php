@@ -1,11 +1,11 @@
 <?php
-$items = $allobjets ?? $objets ?? [];
+$items = $myobjets ?? [];
 ?>
 
 <div class="container-fluid">
 	<?php if (empty($items)) : ?>
 		<div class="text-center text-muted py-5">
-			<p>Aucun objet pour le moment.</p>
+			<p>Aucun objet associé pour le moment.</p>
 		</div>
 	<?php else : ?>
 		<div class="row g-4">
@@ -39,8 +39,13 @@ $items = $allobjets ?? $objets ?? [];
 						</div>
 						
 						<div class="card-footer bg-transparent border-top-0">
-							<div class="d-grid gap-2">
-								<a href="detail_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-primary btn-sm">Voir détails</a>
+							<div class="d-grid gap-2 d-md-flex justify-content-md-between">
+								<a href="detail_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-primary btn-sm flex-fill">
+									<i class="bi bi-eye"></i> Détails
+								</a>
+								<a href="modifier_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-warning btn-sm flex-fill">
+									<i class="bi bi-pencil"></i> Modifier
+								</a>
 							</div>
 							<small class="text-muted d-block mt-2 text-center">
 								Ajouté le <?= date('d/m/Y', strtotime($objet['created_at'] ?? 'now')) ?>

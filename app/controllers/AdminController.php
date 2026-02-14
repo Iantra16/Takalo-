@@ -34,6 +34,13 @@ class AdminController {
             'title' => 'Liste des Utilisateurs'
         ]);
     }
+
+    public function showCategories() {
+        Flight::render('admin/categories', [], 'content');
+        Flight::render('admin/layout', [
+            'title' => 'Categories'
+        ]);
+    }
 }
     
     

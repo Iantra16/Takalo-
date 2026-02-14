@@ -3,8 +3,6 @@
 use app\controllers\AuthController;
 use app\controllers\AdminController;
 use app\controllers\ObjetController;
-use app\controllers\EchangeController;
-use app\controllers\CategorieController;
 use flight\Engine;
 use flight\net\Router;
 
@@ -17,7 +15,7 @@ use flight\net\Router;
 $router->group('', function (Router $router) use ($app) {
 
     $router->get('/', function () use ($app) {
-        $app->redirect('user/login');
+        $app->redirect('/user/login');
     });
 
     // ============================================
@@ -34,6 +32,9 @@ $router->group('', function (Router $router) use ($app) {
 
         // Dashboard
         $router->get('/', [$admin_controller,'showDashboard']);
+
+        // categories
+        $router->get('/categories', [$admin_controller, 'showCategories']);
 
         //utilisateurs
         $router->get('/utilisateurs', [$admin_controller, 'showAllUser']);
@@ -52,6 +53,7 @@ $router->group('', function (Router $router) use ($app) {
     // ============================================
     $router->group('/user', function (Router $router) use ($app) {
         $auth_controller = new AuthController();
+        $objet_controller = new ObjetController();
         //login
         $router->get('/login', function () use ($app) {
             $app->render('front/login');
@@ -64,15 +66,12 @@ $router->group('', function (Router $router) use ($app) {
         });
         $router->post('/inscription',[$auth_controller,'registerUser']);
 
-        //liste objets
-        $router->get('/listobject', function () use ($app) {
-            $app->render('front/liste_objets');
-        });
+        // accueil: liste objets
+        $router->get('/', [$objet_controller, 'findOtherObj']);
+        $router->get('/listobject', [$objet_controller, 'findOtherObj']);
 
-        //mes objets
-        $router->get('/myobject', function () use ($app) {
-            $app->render('admin/listobject');
-        });
+        // mes objets
+        $router->get('/myobject', [$objet_controller, 'showMyObjects']);
         // Déconnexion
         $router->get('/logout', function () use ($app) {
             $auth_controller = new AuthController();

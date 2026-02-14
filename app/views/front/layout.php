@@ -54,15 +54,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/mes-objets" class="nav-link">
+                        <a href="/user/myobject" class="nav-link">
                             <i class="nav-icon fas fa-box"></i>
                             <p>Mes objets</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/mes-echanges" class="nav-link">
-                            <i class="nav-icon fas fa-exchange-alt"></i>
-                            <p>Mes échanges</p>
                         </a>
                     </li>
                 </ul>

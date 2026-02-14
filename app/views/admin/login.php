@@ -10,7 +10,7 @@
     <!-- AdminLTE 4 -->
     <link rel="stylesheet" href="/assets/admin/dist/css/adminlte.min.css">
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/assets/shared/css/custom.css">
+    <link rel="stylesheet" href="/assets/commun/css/custom.css">
     
     <style>
         body {
@@ -66,6 +66,12 @@
                 <strong>Espace Administrateur</strong>
             </p>
 
+            <?php if (!empty($error)) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error ?>
+                </div>
+            <?php endif; ?>
+
             <form action="/admin/login" method="post">
                 <!-- Username -->
                 <div class="input-group mb-3">
@@ -89,7 +95,7 @@
                 <!-- Retour -->
                 <div class="row">
                     <div class="col-12">
-                        <a href="/" class="btn btn-outline-secondary btn-block">
+                        <a href="/user/login" class="btn btn-outline-secondary btn-block">
                             <i class="fas fa-arrow-left"></i> Retour à la page utilisateur
                         </a>
                     </div>
