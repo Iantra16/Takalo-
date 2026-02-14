@@ -8,7 +8,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- AdminLTE 4 -->
-    <link rel="stylesheet" href="/assets/front/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/front/dist/css/adminlte.min.css">
     
     <style>
         body {
@@ -150,7 +150,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="/user/login" method="post">
+            <form action="<?= BASE_URL ?>/user/login" method="post">
                 <!-- Email -->
                 <div class="input-group">
                     <span class="input-group-text">
@@ -192,7 +192,7 @@
 
             <!-- Bouton Admin -->
             <div class="d-grid gap-2">
-                <a href="/admin/login" class="btn btn-admin">
+                <a href="<?= BASE_URL ?>/admin/login" class="btn btn-admin">
                     <i class="fas fa-user-shield"></i> Accès Administrateur
                 </a>
             </div>
@@ -200,7 +200,7 @@
             <!-- Lien inscription -->
             <div class="register-link">
                 <p>Pas encore de compte ? 
-                    <a href="/user/inscription">Inscrivez-vous</a>
+                    <a href="<?= BASE_URL ?>/user/inscription">Inscrivez-vous</a>
                 </p>
             </div>
         </div>
@@ -213,6 +213,6 @@
 <!-- Bootstrap 5 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/assets/front/dist/js/adminlte.min.js"></script>
+<script src="<?= BASE_URL ?>/assets/front/dist/js/adminlte.min.js"></script>
 </body>
 </html>

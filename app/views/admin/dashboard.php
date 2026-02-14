@@ -10,7 +10,7 @@
                 <div class="icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <a href="/admin/utilisateurs" class="small-box-footer">
+                <a href="<?= BASE_URL ?>/admin/utilisateurs" class="small-box-footer">
                     Voir plus <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -25,7 +25,7 @@
                 <div class="icon">
                     <i class="fas fa-tags"></i>
                 </div>
-                <a href="/admin/categories" class="small-box-footer">
+                <a href="<?= BASE_URL ?>/admin/categories" class="small-box-footer">
                     Voir plus <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>

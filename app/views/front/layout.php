@@ -10,9 +10,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- AdminLTE 4 -->
-    <link rel="stylesheet" href="/assets/front/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/front/dist/css/adminlte.min.css">
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/assets/commun/css/custom.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/commun/css/custom.css">
     </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -26,13 +26,13 @@
                 </a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/user" class="nav-link">Accueil</a>
+                <a href="<?= BASE_URL ?>/user" class="nav-link">Accueil</a>
             </li>
         </ul>
 
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a href="/user/logout" class="nav-link">
+                <a href="<?= BASE_URL ?>/user/logout" class="nav-link">
                     <i class="fas fa-sign-out-alt"></i> Déconnexion
                 </a>
             </li>
@@ -41,7 +41,7 @@
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="/user" class="brand-link">
+        <a href="<?= BASE_URL ?>/user" class="brand-link">
             <i class="fas fa-exchange-alt ms-2"></i>
             <span class="brand-text font-weight-light ps-3"> Takalo-takalo</span>
         </a>
@@ -50,13 +50,13 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="/user" class="nav-link">
+                        <a href="<?= BASE_URL ?>/user" class="nav-link">
                             <i class="nav-icon fas fa-home"></i>
                             <p>Accueil</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/user/myobject" class="nav-link">
+                        <a href="<?= BASE_URL ?>/user/myobject" class="nav-link">
                             <i class="nav-icon fas fa-box"></i>
                             <p>Mes objets</p>
                         </a>
@@ -101,6 +101,6 @@
 <!-- Bootstrap 5 (pour AdminLTE 4) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/assets/front/dist/js/adminlte.min.js"></script>
+<script src="<?= BASE_URL ?>/assets/front/dist/js/adminlte.min.js"></script>
 </body>
 </html>

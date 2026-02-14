@@ -40,10 +40,10 @@ $items = $myobjets ?? [];
 						
 						<div class="card-footer bg-transparent border-top-0">
 							<div class="d-grid gap-2 d-md-flex justify-content-md-between">
-								<a href="detail_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-primary btn-sm flex-fill">
+								<a href="<?= BASE_URL ?>/detail_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-primary btn-sm flex-fill">
 									<i class="bi bi-eye"></i> Détails
 								</a>
-								<a href="modifier_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-warning btn-sm flex-fill">
+								<a href="<?= BASE_URL ?>/modifier_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-warning btn-sm flex-fill">
 									<i class="bi bi-pencil"></i> Modifier
 								</a>
 							</div>

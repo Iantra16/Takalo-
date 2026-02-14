@@ -40,7 +40,7 @@ $items = $allobjets ?? $objets ?? [];
 						
 						<div class="card-footer bg-transparent border-top-0">
 							<div class="d-grid gap-2">
-								<a href="detail_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-primary btn-sm">Voir détails</a>
+								<a href="<?= BASE_URL ?>/detail_objet.php?id=<?= $objet['id'] ?>" class="btn btn-outline-primary btn-sm">Voir détails</a>
 							</div>
 							<small class="text-muted d-block mt-2 text-center">
 								Ajouté le <?= date('d/m/Y', strtotime($objet['created_at'] ?? 'now')) ?>

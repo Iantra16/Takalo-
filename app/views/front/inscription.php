@@ -8,9 +8,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- AdminLTE 4 -->
-    <link rel="stylesheet" href="/assets/front/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/front/dist/css/adminlte.min.css">
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/assets/commun/css/custom.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/commun/css/custom.css">
     
     <style>
         body {
@@ -43,7 +43,7 @@
 <div class="register-box">
     <!-- Logo -->
     <div class="register-logo">
-        <a href="/"><b>Takalo</b>-takalo</a>
+        <a href="<?= BASE_URL ?>/"><b>Takalo</b>-takalo</a>
     </div>
 
     <!-- Card -->
@@ -57,7 +57,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="/user/inscription" method="post">
+            <form action="<?= BASE_URL ?>/user/inscription" method="post">
                 <!-- Nom -->
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Nom" name="nom" required>
@@ -119,7 +119,7 @@
 
             <!-- Lien connexion -->
             <p class="mt-3 mb-1 text-center">
-                <a href="/user/login">Vous avez déjà un compte ? Connectez-vous</a>
+                <a href="<?= BASE_URL ?>/user/login">Vous avez déjà un compte ? Connectez-vous</a>
             </p>
         </div>
     </div>
@@ -130,6 +130,6 @@
 <!-- Bootstrap 5 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/assets/front/dist/js/adminlte.min.js"></script>
+<script src="<?= BASE_URL ?>/assets/front/dist/js/adminlte.min.js"></script>
 </body>
 </html>

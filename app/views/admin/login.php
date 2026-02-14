@@ -8,9 +8,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- AdminLTE 4 -->
-    <link rel="stylesheet" href="/assets/admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/admin/dist/css/adminlte.min.css">
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/assets/commun/css/custom.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/commun/css/custom.css">
     
     <style>
         body {
@@ -50,7 +50,7 @@
 <div class="login-box">
     <!-- Logo -->
     <div class="login-logo">
-        <a href="/">
+        <a href="<?= BASE_URL ?>/">
             <b>Takalo</b>-takalo 
             <span class="admin-badge">
                 <i class="fas fa-user-shield"></i> ADMIN
@@ -72,7 +72,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="/admin/login" method="post">
+            <form action="<?= BASE_URL ?>/admin/login" method="post">
                 <!-- Username -->
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Nom d'utilisateur" 
@@ -95,7 +95,7 @@
                 <!-- Retour -->
                 <div class="row">
                     <div class="col-12">
-                        <a href="/user/login" class="btn btn-outline-secondary btn-block">
+                        <a href="<?= BASE_URL ?>/user/login" class="btn btn-outline-secondary btn-block">
                             <i class="fas fa-arrow-left"></i> Retour à la page utilisateur
                         </a>
                     </div>
@@ -110,6 +110,6 @@
 <!-- Bootstrap 5 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/assets/admin/dist/js/adminlte.min.js"></script>
+<script src="<?= BASE_URL ?>/assets/admin/dist/js/adminlte.min.js"></script>
 </body>
 </html>
